@@ -17,6 +17,6 @@ public class UtilisateurController {
     public String showUserList(Model model){
         List<Utilisateur> listUser = utilsateurService.ListUtilisateur();
         model.addAttribute("listUser", listUser);
-        return  "users";
+        return  "utilisateur";
     }
 }
