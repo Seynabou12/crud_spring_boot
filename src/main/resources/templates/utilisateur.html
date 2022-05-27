@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Gestion des Utilisateurs </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link th:href="@{/webjars}">
 </head>
@@ -11,8 +12,11 @@
     <div class="alert alert-primary" role="alert">
         <h1 style="text-align: center">Gestion des Utilisateurs</h1>
     </div>
+    <div style="margin-left: 300px" class="mt-4">
+        <a class="h3" th:href="@{/users/add}"><button type="button" class="btn btn-lg btn-primary" disabled>Add New User</button></a>
+    </div>
     <div>
-        <table class="table table-hover table-primary container">
+        <table class="table table-hover table-primary container mt-5">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -21,17 +25,22 @@
                     <th>Password</th>
                     <th>Prénom</th>
                     <th>Téléphone</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <th:block th:each="user : ${listUser}">
                     <tr>
                         <td>[[${user.id}]]</td>
-                        <td>[[${user.email}]]
+                        <td>[[${user.email}]]</td>
                         <td>[[${user.nom}]]</td>
                         <td>[[${user.password}]]</td>
                         <td>[[${user.prenom}]]</td>
                         <td>[[${user.telephone}]]</td>
+                        <td>
+                            <td th:href="@{'/users/edit/' + ${user.id}}"><i class="bi bi-pen"></i>
+                            <a th:href="@{'/users/delete/' + ${user.id}}"><i class="bi bi-trash"></i></a>
+                        </td>
                     </tr>
                 </th:block>
             </tbody>

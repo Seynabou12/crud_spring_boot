@@ -25,6 +25,16 @@ public class Utilisateur {
     @Column(name = "password", length = 50, nullable = false)
     private String password;
 
+    private boolean enabled;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public int getId() {
         return id;
     }

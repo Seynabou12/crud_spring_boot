@@ -24,7 +24,7 @@ public class UtilisateurRepositoryTest {
         user.setEmail("dioneseynabou12@gmail.com");
         user.setPassword("seynabou12");
         user.setNom("Dione");
-        user.setPrenom("Seynabou");
+        user.setPrenom("Maimouna");
         user.setTelephone(781794521);
 
         repo.save(user);
