@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenu dans mon Application </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link th:href="@{/webjars}">
+</head>
+<body>
+<div>
+    <div class="alert alert-primary" role="alert">
+        <h1 class="">Bienvenu dans mon Application</h1>
+    </div>
+    <nav class="navbar navbar-light" >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="font-size: 10px">Acceuil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/users}"  style="font-size: 10px">Utilisateurs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="font-size: 10px">Produits</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+</body>
+</html>
