@@ -72,4 +72,16 @@ public class Utilisateur {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "id=" + id +
+                ", prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone=" + telephone +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
