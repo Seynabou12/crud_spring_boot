@@ -15,4 +15,8 @@ public class UtilsateurService {
     public List<Utilisateur> ListUtilisateur(){
         return (List<Utilisateur>) repo.findAll();
     }
+
+    public void save(Utilisateur utilisateur) {
+        repo.save(utilisateur);
+    }
 }

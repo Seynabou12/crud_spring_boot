@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -25,4 +27,14 @@ public class UtilisateurController {
         model.addAttribute("user" , new Utilisateur());
         return "user_form";
     }
+
+    @PostMapping("/users/save")
+    public  String userSave(Utilisateur utilisateur, RedirectAttributes redirectAttributes){
+        utilsateurService.save(utilisateur);
+//        redirectAttributes.addAllAttributes("messages", "Utilisateur ajouter avec succéss");
+        return "redirect:/users";
+
+    }
+
+
 }
