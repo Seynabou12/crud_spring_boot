@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -29,9 +31,24 @@ public class UtilisateurController {
     }
 
     @PostMapping("/users/save")
-    public  String userSave( @ModelAttribute("user") Utilisateur utilisateur){
+    public  String userSave(@ModelAttribute("user") Utilisateur utilisateur, RedirectAttributes redirectAttributes){
         utilisateurService.save(utilisateur);
+        redirectAttributes.addFlashAttribute("message", "Un nouveau utilisateur ajouter avec succés");
         return "redirect:/users";
     }
 
+    @GetMapping("/users/edit/{id}")
+    public String showEditForm(@PathVariable("id") int id, Model model , RedirectAttributes redirectAttributes) {
+        Utilisateur utilisateur = null;
+        try {
+            utilisateur = utilisateurService.get(id);
+            model.addAttribute("user", utilisateur);
+            return "user_form";
+        } catch (UtilisateurNotFoundException e) {
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("message", "Un nouveau utilisateur ajouter avec succés");
+            return "redirect:/users";
+        }
+
+    }
 }

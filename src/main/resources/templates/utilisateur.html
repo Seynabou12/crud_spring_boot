@@ -14,7 +14,9 @@
     <div style="margin-left: 300px" class="mt-5">
         <a class="h3" th:href="@{/users/add}"><button type="button" class="btn btn-lg btn-primary" disabled>Add New User</button></a>
     </div>
-    <div th:if="${messages}" class="alert alert-success text-center"></div>
+    <div th:if="${messages}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
     <div>
         <table class="table table-hover table-primary container mt-5">
             <thead>
