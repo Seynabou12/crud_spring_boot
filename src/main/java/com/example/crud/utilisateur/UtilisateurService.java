@@ -28,4 +28,12 @@ public class UtilisateurService {
         }
         throw  new UtilisateurNotFoundException("Could ot found any users with ID" + id);
     }
+
+    public void delete(int id) throws UtilisateurNotFoundException {
+       Long count =  repo.countById(id);
+       if (count == null || count == 0){
+           throw  new UtilisateurNotFoundException("Could ot found any users with ID" + id);
+       }
+        repo.deleteById(id);
+    }
 }

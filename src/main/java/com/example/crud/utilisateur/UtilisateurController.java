@@ -46,9 +46,23 @@ public class UtilisateurController {
             return "user_form";
         } catch (UtilisateurNotFoundException e) {
             e.printStackTrace();
-            redirectAttributes.addFlashAttribute("message", "Un nouveau utilisateur ajouter avec succés");
+            redirectAttributes.addFlashAttribute("message", e.getMessage());
             return "redirect:/users";
         }
 
+    }
+
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+        Utilisateur utilisateur = null;
+        try {
+            utilisateurService.delete(id);
+            redirectAttributes.addFlashAttribute("message", "Utilisateur qui à Id" + id + "est supprimer");
+        } catch (UtilisateurNotFoundException e) {
+            e.printStackTrace();
+            redirectAttributes.addFlashAttribute("message", e.getMessage());
+
+        }
+        return "redirect:/users";
     }
 }
