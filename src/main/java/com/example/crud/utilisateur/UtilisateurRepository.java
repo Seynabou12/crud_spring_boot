@@ -2,7 +2,7 @@ package com.example.crud.utilisateur;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface UtilsateurRepository extends CrudRepository<Utilisateur , Integer>{
+public interface UtilisateurRepository extends CrudRepository<Utilisateur , Integer>{
 
 
 }

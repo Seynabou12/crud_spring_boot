@@ -14,27 +14,27 @@
     <form th:action="@{/users/save}" method="post" th:object="${user}" style="max-width: 700px; margin: 0 auto" >
             <div class="border border-secondary rounded p-3">
                 <div class="mb-3">
-                    <label  class="form-label">Votre Prénom</label>
-                    <input type="text" class="form-control"  aria-describedby="emailHelp" th:value="${user.prenom}" required>
+                    <label  class="form-label">Adresse Email</label>
+                    <input type="email" class="form-control"  aria-describedby="emailHelp" th:field="*{email}" required>
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Votre Nom</label>
-                    <input type="text" class="form-control"  aria-describedby="emailHelp" th:value="${user.nom}" required>
-                </div>
-                <div class="mb-3">
-                    <label  class="form-label">Adresse Email</label>
-                    <input type="email" class="form-control"  aria-describedby="emailHelp" th:value="${user.email}" required>
-                </div>
-                <div class="mb-3">
-                    <label  class="form-label">Votre numéro Téléphone</label>
-                    <input type="text" class="form-control"  aria-describedby="emailHelp" th:value="${user.telephone}" required>
+                    <input type="text" class="form-control"  aria-describedby="emailHelp" th:field="*{nom}" required>
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Votre Mot de passe</label>
-                    <input type="password" class="form-control"  aria-describedby="emailHelp" th:value="${user.password}" required>
+                    <input type="password" class="form-control"  aria-describedby="emailHelp" th:field="*{password}" required>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Votre Prénom</label>
+                    <input type="text" class="form-control"  aria-describedby="emailHelp" th:field="*{prenom}" required>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Votre numéro Téléphone</label>
+                    <input type="text" class="form-control"  aria-describedby="emailHelp" th:field="*{telephone}" required>
                 </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" th:field="*{enabled}">
                     <label class="form-check-label" for="exampleCheck1">Souvenir de moi</label>
                 </div>
                 <div class="text-center">

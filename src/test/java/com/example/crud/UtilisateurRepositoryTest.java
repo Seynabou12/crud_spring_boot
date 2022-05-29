@@ -1,7 +1,7 @@
 package com.example.crud;
 
 import com.example.crud.utilisateur.Utilisateur;
-import com.example.crud.utilisateur.UtilsateurRepository;
+import com.example.crud.utilisateur.UtilisateurRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -16,16 +16,17 @@ import java.util.Optional;
 public class UtilisateurRepositoryTest {
 
     @Autowired
-    private UtilsateurRepository repo;
+    private UtilisateurRepository repo;
 
     @Test
     public void TestAddNew(){
         Utilisateur user = new Utilisateur();
-        user.setEmail("dioneseynabou12@gmail.com");
-        user.setPassword("seynabou12");
-        user.setNom("Dione");
-        user.setPrenom("Maimouna");
-        user.setTelephone(781794521);
+        user.setEmail("npfate@gmail.com");
+        user.setPassword("111TE");
+        user.setNom("Diouf");
+        user.setPrenom("Faté");
+        user.setTelephone("775654544");
+        user.setEnabled(true);
 
         repo.save(user);
     }
@@ -44,7 +45,7 @@ public class UtilisateurRepositoryTest {
         int userId = 1;
         Optional<Utilisateur> optionalUtilisateur = repo.findById(userId);
         Utilisateur utilisateur = optionalUtilisateur.get();
-        utilisateur.setTelephone(768767654);
+        utilisateur.setTelephone("768767654");
         repo.save(utilisateur);
         Utilisateur updateUtisateur = repo.findById(userId).get();
     }

@@ -8,7 +8,6 @@
     <link th:href="@{/webjars}">
 </head>
 <body>
-
     <div class="alert alert-primary" role="alert">
         <h1 style="text-align: center">Gestion des Utilisateurs</h1>
     </div>
@@ -24,22 +23,22 @@
                     <th>Email</th>
                     <th>Nom</th>
                     <th>Password</th>
-                    <th>Prénom</th>
+                    <th>Prnom</th>
                     <th>Téléphone</th>
                     <th>Active</th>
-<                    <th>Actions</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <th:block th:each="user : ${listUser}">
                     <tr>
-                        <td>[[${user.id}]]</td>
-                        <td>[[${user.email}]]</td>
-                        <td>[[${user.nom}]]</td>
-                        <td>[[${user.password}]]</td>
-                        <td>[[${user.prenom}]]</td>
-                        <td>[[${user.telephone}]]</td>
-                        <td>[[${user.enabled}]]</td>
+                        <td th:text="${user.id}" ></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.nom}"></td>
+                        <td th:text="${user.password}"></td>
+                        <td th:text="${user.prenom}"></td>
+                        <td th:text="${user.telephone}"></td>
+                        <td th:text="${user.enabled}"></td>
                         <td>
                             <a th:href="@{'/users/edit/' + ${user.id}}"><i class="bi bi-pen"></i>
                             <a th:href="@{'/users/delete/' + ${user.id}}"><i class="bi bi-trash"></i></a>
